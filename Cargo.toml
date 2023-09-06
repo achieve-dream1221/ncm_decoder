@@ -10,6 +10,17 @@ hex-literal = "0.4"
 hex = "*"
 aes = "*"
 ecb = "*"
-base64ct = {version = "*", features = ["alloc"]}
+base64ct = { version = "*", features = ["alloc"] }
 serde_json = "*"
 serde = { version = "*", features = ["derive"] }
+anyhow = "*"
+tokio = { version = "*", features = ["fs", "rt-multi-thread", "time","io-util"] }
+# 下载进度条
+indicatif = "*"
+# 命令行解析
+clap = { version = "*", features = ["derive"] }
+env_logger = "*"
+log = "*"
+chrono = "*"
+colored = "*"
+regex = "*"
