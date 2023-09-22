@@ -4,19 +4,18 @@ use tokio::time::Instant;
 
 mod log_init;
 mod ncm_decoder;
-
 /// 多线程ncm解密器
 #[derive(Parser)]
-#[command(author, version, about, long_about = None)]
+#[command(author, version, about, long_about = "多线程异步ncm音频解码器")]
 struct Args {
     /// ncm所在目录
-    #[arg(short, long, default_value_t=String::from(""))]
+    #[arg(short, long)]
     ncm_dir: String,
     /// 文件输出目录
-    #[arg(short, long, default_value_t=String::from("music"))]
+    #[arg(short, long, default_value_t=String::from("unlocked"))]
     out_dir: String,
     /// 线程数量
-    #[arg(short, long, default_value_t = 4)]
+    #[arg(short, long, default_value_t = 64)]
     threads: u8,
 }
 
@@ -35,3 +34,7 @@ fn main() {
         });
     println!("累计耗时: {}ms", instant.elapsed().as_millis());
 }
+
+/*
+cargo run -- -n F:\CloudMusic\VipSongsDownload -o F:\test\music
+*/
